@@ -1,7 +1,6 @@
 package technology.tabula;
 
 import java.awt.geom.Point2D;
-import java.util.Collections;
 
 @SuppressWarnings("serial")
 public class Cell extends RectangularTextContainer<TextChunk> {
@@ -13,7 +12,8 @@ public class Cell extends RectangularTextContainer<TextChunk> {
 	}
 
 	public Cell(Point2D topLeft, Point2D bottomRight) {
-		super((float) topLeft.getY(), (float) topLeft.getX(), (float) (bottomRight.getX() - topLeft.getX()), (float) (bottomRight.getY() - topLeft.getY()));
+		super((float) topLeft.getY(), (float) topLeft.getX(), (float) (bottomRight.getX() - topLeft.getX()),
+				(float) (bottomRight.getY() - topLeft.getY()));
 		this.setPlaceholder(false);
 		this.setSpanning(false);
 	}

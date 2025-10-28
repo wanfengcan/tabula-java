@@ -42,8 +42,8 @@ public class Debug {
 
     private static final float CIRCLE_RADIUS = 5f;
 
-    private static final Color[] COLORS = {new Color(27, 158, 119), new Color(217, 95, 2), new Color(117, 112, 179),
-            new Color(231, 41, 138), new Color(102, 166, 30)};
+    private static final Color[] COLORS = { new Color(27, 158, 119), new Color(217, 95, 2), new Color(117, 112, 179),
+            new Color(231, 41, 138), new Color(102, 166, 30) };
 
     public static void debugIntersections(Graphics2D g, Page page) {
         int i = 0;
@@ -207,15 +207,15 @@ public class Debug {
     }
 
     private static void drawShape(Graphics2D g, Shape shape) {
-        //g.setStroke(new BasicStroke(1));
+        // g.setStroke(new BasicStroke(1));
         g.draw(shape);
     }
 
     public static void renderPage(String pdfPath, String outPath, int pageNumber, Rectangle area,
-                                  boolean drawTextChunks, boolean drawSpreadsheets, boolean drawRulings, boolean drawIntersections,
-                                  boolean drawColumns, boolean drawCharacters, boolean drawArea, boolean drawCells,
-                                  boolean drawUnprocessedRulings, boolean drawProjectionProfile, boolean drawClippingPaths,
-                                  boolean drawDetectedTables) throws IOException {
+            boolean drawTextChunks, boolean drawSpreadsheets, boolean drawRulings, boolean drawIntersections,
+            boolean drawColumns, boolean drawCharacters, boolean drawArea, boolean drawCells,
+            boolean drawUnprocessedRulings, boolean drawProjectionProfile, boolean drawClippingPaths,
+            boolean drawDetectedTables) throws IOException {
         PDDocument document = Loader.loadPDF(new File(pdfPath));
 
         ObjectExtractor oe = new ObjectExtractor(document);
@@ -265,8 +265,9 @@ public class Debug {
         }
         if (drawClippingPaths) {
             // TODO: Enable when oe.clippingPaths is done
-            //drawShapes(g, oe.clippingPaths,
-            //		new BasicStroke(2f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 10f, new float[] { 3f }, 0f));
+            // drawShapes(g, oe.clippingPaths,
+            // new BasicStroke(2f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 10f, new
+            // float[] { 3f }, 0f));
         }
         if (drawDetectedTables) {
             debugDetectedTables(g, page);
@@ -281,6 +282,7 @@ public class Debug {
         Options o = new Options();
 
         o.addOption("h", "help", false, "Print this help text.");
+        // 显示检测到的裁定
         o.addOption("r", "rulings", false, "Show detected rulings.");
         o.addOption("i", "intersections", false, "Show intersections between rulings.");
         o.addOption("s", "spreadsheets", false, "Show detected spreadsheets.");
@@ -350,7 +352,7 @@ public class Debug {
 
             if (pages == null) {
                 // user specified all pages
-                PDDocument document =  Loader.loadPDF(pdfFile);
+                PDDocument document = Loader.loadPDF(pdfFile);
 
                 int numPages = document.getNumberOfPages();
                 pages = new ArrayList<>(numPages);

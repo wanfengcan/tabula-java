@@ -6,8 +6,7 @@ import technology.tabula.Page;
 import technology.tabula.Table;
 
 public interface ExtractionAlgorithm {
-
     List<? extends Table> extract(Page page);
+
     String toString();
-    
 }
